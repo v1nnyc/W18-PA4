@@ -37,12 +37,12 @@ int tennis(std::vector<Interval> lessons) {
 	mypq.push(lessons[0]);
 	for(int i = 1; i < lessons.size(); i++){
 		while(!mypq.empty() && mypq.top().end <= lessons[i].start){
-			std::cout<<"popped: "<<mypq.top().start<<","<<mypq.top().end<<"\n";
+			//std::cout<<"popped: "<<mypq.top().start<<","<<mypq.top().end<<"\n";
 			mypq.pop();
 
 		}
 		mypq.push(lessons[i]);
-		std::cout<<"pushed: "<<lessons[i].start<<","<<lessons[i].end<<"\n";
+		//std::cout<<"pushed: "<<lessons[i].start<<","<<lessons[i].end<<"\n";
 		roomCount = std::max(roomCount, (int)mypq.size());
 	}
 	return roomCount;
