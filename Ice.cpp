@@ -47,6 +47,11 @@ int ice(TwoD_Array<int> rooms) {
 			else{
 				int a = netChange->at(i + 1, j) - rooms.at(i, j);
 				int b = netChange->at(i, j + 1) - rooms.at(i, j);
+				if(a > 0)
+					netChange->at(i,j) = a;
+				else if (b > 0)
+					netChange->at(i,j) = b;
+				else
 				netChange->at(i,j) = (abs(a) < abs(b))? a: b;
 				//std::cout<<a<<"\n";
 				//std::cout<<b<<"\n";
