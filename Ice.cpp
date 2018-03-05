@@ -52,7 +52,7 @@ int ice(TwoD_Array<int> rooms) {
 				//std::cout<<b<<"\n";
 
 			}
-		netChange->printOut();
+		//netChange->printOut();
 		}
 		
 	}
