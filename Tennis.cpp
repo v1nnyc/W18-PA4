@@ -16,6 +16,7 @@
 #include "Tennis.hpp"
 #include <iostream>
 #include <queue>
+#include <algorithm>
 
 struct LessThanByEnd
 {
