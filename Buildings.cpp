@@ -40,7 +40,7 @@ int buildings(TwoD_Array<int> survey) {
 	int count = 0;
 
 	TwoD_Array<int> * arr = new TwoD_Array<int>(rows+2, cols+2);
-	survey.printOut();
+	//survey.printOut();
 	for(int i = 0; i<rows; i++){
 
 		for(int j = 0; j<cols; j++){
@@ -49,6 +49,7 @@ int buildings(TwoD_Array<int> survey) {
 
 				count++;
 				//std::cout<<"1\n";
+				survey.at(i,j) = 0;
 				std::queue<std::pair<int, int>> queue; 
 				queue.push(std::pair<int, int>(i, j)); 
 				while(!queue.empty()){
@@ -58,27 +59,27 @@ int buildings(TwoD_Array<int> survey) {
 					//hi colin! this block of if statements is just doing what the remove method does,
 					//its gettings stuck in an infinite loop for some reason 
 					//:)
-					if(top.first > 0 && survey.at(top.first-1,top.second) == 1){
-						std::cout<<"1\n";
-						queue.push(std::pair<int, int>(top.first-1, top.second));
+
+					if(top.first > 0 &&survey.at(top.first-1,top.second) == 1){
+						survey.at(top.first-1, top.second) = 0;
+						queue.push(std::pair<int,int>(top.first-1, top.second));
 					}
-					 if(top.first < survey.getNumRows()-1 && survey.at(top.first+1,top.second) == 1){
-					 	std::cout<<"2\n";
-						queue.push(std::pair<int, int>(top.first+1, top.second));
+					if(top.first < survey.getNumRows()-1 && survey.at(top.first+1,top.second) == 1){
+						survey.at(top.first+1,top.second) = 0;
+						queue.push(std::pair<int,int>(top.first+1,top.second));
 					}
-					 if(top.second>0 && survey.at(top.first,top.second-1) == 1){
-					 	std::cout<<"3\n";
-						queue.push(std::pair<int, int>(top.first, top.second-1));
+					if(top.second>0 && survey.at(top.first,top.second-1) == 1){
+						survey.at(top.first, top.second-1) = 0;
+						queue.push(std::pair<int,int>(top.first, top.second-1));
 					}
-					 if(top.second < survey.getNumCols()-1 && survey.at(top.first,top.second+1) == 1){
-					 	std::cout<<"4\n";
-						queue.push(std::pair<int, int>(top.first, top.second+1));
+					if(top.second < survey.getNumCols()-1 && survey.at(top.first,top.second+1) == 1){
+						survey.at(top.first, top.second+1) = 0;
+						queue.push(std::pair<int,int>(top.first, top.second+1));
 					}
-					//survey.printOut();
 				}
 				//std::cout<<"i: " << i << " j: "<< j<<"\n";
-				//remove(survey, i, j);
-				survey.printOut();
+				remove(survey, i, j);
+				//survey.printOut();
 				
 
 
