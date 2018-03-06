@@ -17,6 +17,7 @@
 
 //use queue 
 void remove(TwoD_Array<int> survey, int i, int j){
+
 	survey.at(i,j) = 0;
 	if(i > 0 &&survey.at(i-1,j) == 1){
 		remove(survey, i-1, j);
@@ -47,9 +48,31 @@ int buildings(TwoD_Array<int> survey) {
 			if(survey.at(i,j) == 1){
 
 				count++;
+				//std::cout<<"1\n";
+				std::queue<std::pair<int, int>> queue; 
+				queue.push(std::pair<int, int>(i, j)); 
+				while(!queue.empty()){
+					auto top = queue.front();
+					survey.at(top.first, top.second) = 0;
+					queue.pop();
+					if(top.first > 0 && survey.at(top.first-1,top.second) == 1){
+						queue.push(std::pair<int, int>(top.first-1, top.second));
+					}
+					 if(top.first < survey.getNumRows()-1 && survey.at(top.first+1,top.second) == 1){
+						queue.push(std::pair<int, int>(top.first+1, top.second));
+					}
+					 if(top.second>0 && survey.at(top.first,top.second-1) == 1){
+						queue.push(std::pair<int, int>(top.first, top.second-1));
+					}
+					 if(top.second < survey.getNumCols()-1 && survey.at(top.first,top.second+1) == 1){
+						queue.push(std::pair<int, int>(top.first, top.second+1));
+					}
+					//survey.printOut();
+				}
 				//std::cout<<"i: " << i << " j: "<< j<<"\n";
-				remove(survey, i, j);
+				//remove(survey, i, j);
 				//survey.printOut();
+				
 
 
 			}
