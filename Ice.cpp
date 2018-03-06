@@ -68,8 +68,10 @@ int ice(TwoD_Array<int> rooms) {
 		else
 			return 1 + rooms.at(0,0);
 
-	else
-  		return 1 - netChange->at(0,0);
+	else if(netChange->at(0,0) < 0)
+		return 1 + rooms.at(0,0);
+
+  	//	return 1 - netChange->at(0,0);
 	//return 0;
 }
 #endif
