@@ -56,9 +56,6 @@ int buildings(TwoD_Array<int> survey) {
 					auto top = queue.front();
 					survey.at(top.first, top.second) = 0;
 					queue.pop();
-					//hi colin! this block of if statements is just doing what the remove method does,
-					//its gettings stuck in an infinite loop for some reason 
-					//:)
 
 					if(top.first > 0 &&survey.at(top.first-1,top.second) == 1){
 						survey.at(top.first-1, top.second) = 0;
