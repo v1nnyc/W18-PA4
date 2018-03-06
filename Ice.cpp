@@ -16,17 +16,11 @@
 
 #include "Ice.hpp"
 
-int min(int x, int y){ 
-	if( y == 0)
-		return 0;
-	return (((x) < (y)) ? (x) : (y));
-}
 
 int ice(TwoD_Array<int> rooms) {
 	int cols = rooms.getNumCols() - 1;
 	int rows = rooms.getNumRows() - 1;
 	TwoD_Array<int> * netChange = new TwoD_Array<int>(rows + 1, cols + 1);
-	//initialize array to 0
 	for(int i = rows; i >= 0; i--){
 		for(int j = cols; j>=0; j--){
 			netChange->at(i,j)=0;
