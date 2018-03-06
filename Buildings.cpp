@@ -13,7 +13,9 @@
 #define __BUILDINGS_CPP__
 
 #include "Buildings.hpp"
+#include <queue>
 
+//use queue 
 void remove(TwoD_Array<int> survey, int i, int j){
 	survey.at(i,j) = 0;
 	if(i > 0 &&survey.at(i-1,j) == 1){
