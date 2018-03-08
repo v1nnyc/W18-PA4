@@ -1,8 +1,8 @@
 // CSE 101 Winter 2018, PA 4
 //
-// Name: TODO put both partners' info if applicable
-// PID: TODO
-// Sources of Help: TODO
+// Name: Vincent Cannalla/Colin Van Winkle
+// PID: A13006747 A12792067
+// Sources of Help: none
 // Due: March 10th, 2018 at 11:59 PM
 
 //make TestBuildings
